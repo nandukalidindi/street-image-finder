@@ -15,11 +15,13 @@ class ImageFinder:
     @staticmethod
     def get_images_by_lat_lng(latitude = 40.720032, longitude = -73.988354):
         image = requests.get(BASE_URL + str(latitude) + ", " + str(longitude) + "&key=" + API_KEY)
+        return image
 
     @staticmethod
     def get_images_by_zipcode(zipcode = 11209):
         latitude, longitude = ImageFinder.get_coordinates_from_zipcode(zipcode)
         image = requests.get(BASE_URL + str(latitude) + ", " + str(longitude) + "&key=" + API_KEY)
+        return image
 
     @staticmethod
     def get_coordinates_from_zipcode(zipcode = 11209):
